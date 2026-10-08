@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Lost &amp; Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="index.html">Lost &amp; Found</a>
+    <nav>
+      <a href="browse.html">Browse found items</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a class="btn btn-small" href="#" data-logout>Log out</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <h1 id="greeting">Your dashboard</h1>
+      <div class="hero-actions">
+        <a class="btn btn-small" href="report.html?type=lost">Report lost item</a>
+        <a class="btn btn-small btn-outline" href="report.html?type=found">Report found item</a>
+      </div>
+    </div>
+
+    <p class="banner" id="banner" role="status" hidden></p>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab" role="tab" id="tab-matches" aria-selected="true" data-panel="matches">Matches</button>
+      <button type="button" class="tab" role="tab" id="tab-lost" aria-selected="false" data-panel="lost">My lost items</button>
+      <button type="button" class="tab" role="tab" id="tab-found" aria-selected="false" data-panel="found">My found items</button>
+    </div>
+
+    <section id="panel-matches" role="tabpanel" aria-labelledby="tab-matches"></section>
+    <section id="panel-lost" role="tabpanel" aria-labelledby="tab-lost" hidden></section>
+    <section id="panel-found" role="tabpanel" aria-labelledby="tab-found" hidden></section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

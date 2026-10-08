@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign up | Lost &amp; Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="index.html">Lost &amp; Found</a>
+    <nav>
+      <a href="browse.html">Browse found items</a>
+      <a class="btn btn-small" href="login.html">Log in</a>
+    </nav>
+  </header>
+
+  <main class="auth">
+    <form class="auth-form" id="signup-form" novalidate>
+      <h1>Create an account</h1>
+      <p class="auth-sub">You need an account to post items and get notified about matches.</p>
+
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+        <span class="field-error" data-for="name"></span>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+        <span class="field-error" data-for="email"></span>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="new-password" minlength="8" required>
+        <span class="field-hint">At least 8 characters.</span>
+        <span class="field-error" data-for="password"></span>
+      </div>
+
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <input type="password" id="confirm" name="confirm" autocomplete="new-password" required>
+        <span class="field-error" data-for="confirm"></span>
+      </div>
+
+      <button type="submit" class="btn btn-block" id="submit-btn">Create account</button>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+    </form>
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report an item | Lost &amp; Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="index.html">Lost &amp; Found</a>
+    <nav>
+      <a href="browse.html">Browse found items</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a class="btn btn-small" href="#" data-logout>Log out</a>
+    </nav>
+  </header>
+
+  <main class="page page-narrow">
+    <h1 id="page-title">Report a lost item</h1>
+    <p class="page-sub" id="page-sub">Describe it as closely as you can. The more detail, the better the match.</p>
+
+    <form id="report-form" novalidate>
+      <p class="banner banner-error" id="form-error" role="alert" hidden></p>
+
+      <fieldset class="type-toggle">
+        <legend>What are you reporting?</legend>
+        <label><input type="radio" name="type" value="lost" checked> I lost something</label>
+        <label><input type="radio" name="type" value="found"> I found something</label>
+      </fieldset>
+
+      <div class="field">
+        <label for="title">Item name</label>
+        <input type="text" id="title" name="title" maxlength="80" placeholder="Black leather wallet" required>
+        <span class="field-error" data-for="title"></span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Choose one</option>
+            <option>Wallet or purse</option>
+            <option>Phone</option>
+            <option>Keys</option>
+            <option>Bag or backpack</option>
+            <option>ID or cards</option>
+            <option>Laptop or tablet</option>
+            <option>Earphones or headphones</option>
+            <option>Water bottle</option>
+            <option>Clothing</option>
+            <option>Books or stationery</option>
+            <option>Jewellery or watch</option>
+            <option>Other</option>
+          </select>
+          <span class="field-error" data-for="category"></span>
+        </div>
+
+        <div class="field">
+          <label for="color">Main color</label>
+          <input type="text" id="color" name="color" maxlength="30" placeholder="Black">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="brand">Brand <span class="optional">(optional)</span></label>
+        <input type="text" id="brand" name="brand" maxlength="40" placeholder="Fossil, Samsung, Wildcraft">
+      </div>
+
+      <div class="field">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" maxlength="500" placeholder="Marks, stickers, scratches, what was inside"></textarea>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="locationText" id="location-label">Where did you lose it?</label>
+          <input type="text" id="locationText" name="locationText" maxlength="120" placeholder="Library, second floor" required>
+          <span class="field-error" data-for="locationText"></span>
+        </div>
+
+        <div class="field">
+          <label for="date" id="date-label">When did you lose it?</label>
+          <input type="date" id="date" name="date" required>
+          <span class="field-error" data-for="date"></span>
+        </div>
+      </div>
+
+      <!-- Reserved for a map picker later. Sent only when filled. -->
+      <input type="hidden" name="latitude">
+      <input type="hidden" name="longitude">
+
+      <!-- Found items only -->
+      <div class="found-only" hidden>
+        <div class="field">
+          <label for="keptAt">Where is the item now?</label>
+          <input type="text" id="keptAt" name="keptAt" maxlength="120" placeholder="With me, security office, front desk">
+        </div>
+
+        <div class="field">
+          <label for="verificationQuestion">Question for the owner <span class="optional">(optional)</span></label>
+          <input type="text" id="verificationQuestion" name="verificationQuestion" maxlength="150" placeholder="What is the wallpaper on the phone?">
+          <span class="field-hint">Only the real owner should know the answer. It is not shown publicly.</span>
+        </div>
+
+        <div class="field">
+          <label for="verificationAnswer">Correct answer</label>
+          <input type="text" id="verificationAnswer" name="verificationAnswer" maxlength="150">
+          <span class="field-error" data-for="verificationAnswer"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="images">Photos <span class="optional">(up to 3)</span></label>
+        <label class="upload" for="images">
+          <span>Choose photos</span>
+          <small>JPG, PNG or WebP, up to 5 MB each</small>
+        </label>
+        <input type="file" id="images" accept="image/jpeg,image/png,image/webp" multiple class="visually-hidden">
+        <span class="field-error" data-for="images"></span>
+        <ul class="previews" id="previews"></ul>
+        <p class="notice">Hide card numbers, ID numbers and names before uploading a photo.</p>
+      </div>
+
+      <button type="submit" class="btn" id="submit-btn">Post lost item</button>
+    </form>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>

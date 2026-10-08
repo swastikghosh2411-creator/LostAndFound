@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse found items | Lost &amp; Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="index.html">Lost &amp; Found</a>
+    <nav id="nav-links">
+      <a href="browse.html">Browse found items</a>
+      <a href="login.html">Log in</a>
+      <a class="btn btn-small" href="signup.html">Sign up</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>Found items</h1>
+    <p class="page-sub">Everything people have handed in or reported. Open an item to claim it.</p>
+
+    <form class="filters" id="filters">
+      <div class="field">
+        <label for="q">Search</label>
+        <input type="search" id="q" name="q" placeholder="Wallet, keys, blue bottle">
+      </div>
+      <div class="field">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option value="">All categories</option>
+          <option>Wallet or purse</option>
+          <option>Phone</option>
+          <option>Keys</option>
+          <option>Bag or backpack</option>
+          <option>ID or cards</option>
+          <option>Laptop or tablet</option>
+          <option>Earphones or headphones</option>
+          <option>Water bottle</option>
+          <option>Clothing</option>
+          <option>Books or stationery</option>
+          <option>Jewellery or watch</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Search</button>
+    </form>
+
+    <p class="banner banner-error" id="message" role="alert" hidden></p>
+    <p class="result-count" id="count" role="status"></p>
+
+    <ul class="found-grid" id="grid"></ul>
+
+    <p class="load-more"><button type="button" class="btn btn-outline" id="more" hidden>Show more</button></p>
+
+    <p class="page-sub">Cannot find yours? <a href="report.html?type=lost">Report it as lost</a> and we will tell you when something matches.</p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/browse.js"></script>
+</body>
+</html>
